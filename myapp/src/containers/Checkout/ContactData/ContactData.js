@@ -3,7 +3,8 @@ import classes from './ContactData.css';
 import Button from '../../../components/UI/Button/Button'
 import axios from '../../../Axios-orders';
 import Spinner from '../../../components/UI/Spinner/Spinner'
-import Aux from '../../../hoc/aux'
+import Aux from '../../../hoc/aux';
+import {connect} from 'react-redux';
 
 class Contact extends Component
 {
@@ -74,4 +75,13 @@ class Contact extends Component
     
 }
 
-export default Contact;
+const mapStateToProps=(state)=>{
+    return{
+    ingredients:state.ingredients,
+    price:state.totalPrice
+    }
+    
+    
+}
+
+export default connect(mapStateToProps)(Contact);
