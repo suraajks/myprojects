@@ -3,7 +3,7 @@ import classes from './Backdrop.css'
 const backdrop =(props)=>{
     
     
-console.log("backdrop",props.show)
+
 return(
 
     

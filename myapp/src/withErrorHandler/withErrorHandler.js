@@ -18,7 +18,8 @@ const withErrorHandler=(WrappedComponent,axios)=>{
                 
             })
             
-            this.resInter=axios.interceptors.response.use(res=>res,error=>{
+            this.resInter=axios.interceptors.response.use(res=>{ return res},error=>{
+               
                 this.setState({error:error})
                 
                 
