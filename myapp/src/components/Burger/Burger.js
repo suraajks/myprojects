@@ -3,7 +3,7 @@ import classes from './Burger.css'
 import BurgerIngredients from './BurgerIngredients/BurgerIngredients';
 
 const Burger=(props)=>{
-    console.log("burger",props)
+   
     
       const checkTotal=Object.values(props.ingredients)
                             .reduce((total,i)=>{return total+i}) ;

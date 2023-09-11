@@ -12,7 +12,7 @@ const sideDrawer = ( props ) => {
     if (props.open) {
         attachedClasses = [classes.SideDrawer, classes.Open];
     }
-    console.log("sidefdrawer",attachedClasses,props.open)
+    
     return (
         <Aux>
             <Backdrop show={props.open} clicked={props.closed}/>

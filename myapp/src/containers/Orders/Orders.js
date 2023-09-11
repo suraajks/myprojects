@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import OrderSummary from '../../components/orderSummary/orderSummary';
 import axios from '../../Axios-orders';
+import {connect} from 'react-redux';
 
 class Order extends Component {
     
@@ -11,7 +12,10 @@ class Order extends Component {
     componentDidMount(){
         let fetchorder=[]
         
-        axios.get('/orders.json')
+        
+        const queryParams="?auth="+this.props.token+'&orderBy="userId"&equalTo="'+this.props.userId+'"'
+        
+        axios.get('/orders.json'+queryParams)
             .then((response)=>{
                 for (let key in response.data){
                     
@@ -33,6 +37,7 @@ class Order extends Component {
         
         return(
             <div>
+            
             
             {
              this.state.orders.map( (order)=>{
@@ -57,4 +62,11 @@ class Order extends Component {
     
 }
 
-export default Order;
+const mapStateToProps=(state)=>{
+    return{
+    token:state.auth.token,
+    userId:state.auth.userid
+    }
+}
+
+export default connect(mapStateToProps)(Order);
